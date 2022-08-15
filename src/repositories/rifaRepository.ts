@@ -36,7 +36,11 @@ export async function unselectRifa(numero: number, userId: number) {
 }
 
 export async function mostrarTodos() {
-  return await client.rifas.findMany({});
+  return await client.rifas.findMany({
+    orderBy: {
+      numero: "asc",
+    },
+  });
 }
 
 export async function findSelected(userId: number) {

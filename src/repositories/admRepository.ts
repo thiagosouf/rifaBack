@@ -16,10 +16,8 @@ export async function findRifaById(rifaId: number) {
 }
 
 export async function createRifa(rifaData: admRepository) {
-  console.log("3.1: ");
   const { numeros, valor, premio, rifaId } = rifaData;
-  console.log(numeros, valor, premio, rifaId);
-  console.log("3.2: ");
+
   return await client.admRifas.create({
     data: {
       totalNumeros: numeros,
