@@ -41,7 +41,7 @@ export async function createNumeros(numeros: number, rifaId: number) {
 function gerarNumeros(numero: number, rifaId: number) {
   let array = [];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < numero; i++) {
     let numerosGerados: any = {};
     numerosGerados.numero = i;
     numerosGerados.rifaId = rifaId;

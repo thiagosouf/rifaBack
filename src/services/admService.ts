@@ -19,7 +19,6 @@ export async function cadastrarRifaService(
   if (verificarRifa) throw conflictError();
 
   const cadastrar = await repo.createRifa(rifaData);
-  console.log("3.3");
   const criarNumeros = await repo.createNumeros(
     rifaData.numeros,
     cadastrar.rifaId
