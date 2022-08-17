@@ -13,16 +13,10 @@ export async function selecionarRifaService(rifaData: any, token: string) {
   const userId = validToken(token);
   if (!userId) throw unauthorizedError();
   if (userId === 1) throw unprocessableError();
-  console.log("aqui1");
-  console.log(rifaData.numero);
   const verificaNumero = await repo.findStatusByNumber(rifaData.numero);
-  console.log("aqui2");
   if (verificaNumero.status !== "Disponíveis") throw conflictError();
-  console.log("aqui3");
   const selecionar = await repo.selectRifa(rifaData.numero, userId);
-  console.log("aqui4");
   if (!selecionar) throw unprocessableError();
-  console.log("aqui5");
   return "numero selecionado";
 }
 
@@ -54,7 +48,6 @@ export async function checkoutRifaService(checkout: number, token: string) {
   if (!userId) throw unauthorizedError();
   if (userId === 1) throw unprocessableError();
   const pegarEscolhidos = await repo.findSelected(userId);
-  console.log(pegarEscolhidos.length);
   const pegarUsuario = await repo.findUser(userId);
   const dadosUsuario = [
     pegarUsuario.nome,

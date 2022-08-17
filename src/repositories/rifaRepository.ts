@@ -49,6 +49,9 @@ export async function findSelected(userId: number) {
       userId,
       status: "Selecionado",
     },
+    orderBy: {
+      numero: "asc",
+    },
   });
 }
 
