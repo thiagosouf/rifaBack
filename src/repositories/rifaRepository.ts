@@ -56,5 +56,9 @@ export async function findSelected(userId: number) {
 }
 
 export async function findUser(userId: number) {
-  return await client.users.findFirst({});
+  return await client.users.findFirst({
+    where: {
+      id: userId,
+    },
+  });
 }
